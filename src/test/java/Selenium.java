@@ -1,6 +1,6 @@
 import Roman.RomanBase;
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import selenium.fix.FailingApplication;
 
 public class Selenium extends RomanBase {
