@@ -38,7 +38,6 @@ public class AccountDashboardPage extends AbstractPage {
 
     public void depositAndValidate(String account, String amount)
     {
-        Pattern pattern = Pattern.compile("\\d+");
 
         setSelectedItem(AccountSelector,account);
 
@@ -46,8 +45,14 @@ public class AccountDashboardPage extends AbstractPage {
         click(DepositBtn);
 
         String accountBefore = getText(AccountDetails);
+        //Provide Regex for this pattern
+        Pattern pattern = Pattern.compile("");
         Matcher matcher = pattern.matcher(accountBefore);
-        String balanceBefore = matcher.group(0);
+        String balanceBefore = "";
+        if(matcher.find())
+        {
+            balanceBefore = matcher.group(0);
+        }
 
         stepInfo("Balance Before: "+balanceBefore);
 
@@ -58,7 +63,11 @@ public class AccountDashboardPage extends AbstractPage {
 
         String accountAfter = getText(AccountDetails);
         matcher = pattern.matcher(accountAfter);
-        String balanceAfter = matcher.group(0);
+        String balanceAfter = "";
+        if(matcher.find())
+        {
+            balanceAfter = matcher.group(0);
+        }
 
         stepInfo("Balance After: "+balanceAfter);
 
