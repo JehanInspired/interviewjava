@@ -4,7 +4,7 @@
 
 For this interview perform a candidate must remote control and complete the following tasks:
 
-* Estimations on Testscases.xlsx
+* Estimations on Test_Cases_Estimations.xlsx
 * 1 of the Easy Challenges
 * 1 of the Harder Challenges
 * They must fix the errors in the FailingApplication tests
