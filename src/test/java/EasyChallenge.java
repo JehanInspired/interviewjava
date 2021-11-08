@@ -1,7 +1,7 @@
 import codechallenges.models.NumberGen;
 import codechallenges.models.Student;
 import org.apache.commons.lang3.builder.ToStringExclude;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 

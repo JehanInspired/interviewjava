@@ -1,7 +1,7 @@
 package selenium.fix.pages;
 
 import Roman.Roman;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import selenium.AbstractPage;
 
@@ -73,8 +73,8 @@ public class AccountDashboardPage extends AbstractPage {
 
         String difference = balanceDifference(balanceAfter,balanceBefore);
 
-        Assert.assertTrue("Deposit difference failed to validate, expected "+amount+
-                ", but found "+difference,!amount.equals(difference));
+        Assertions.assertTrue(!amount.equals(difference),"Deposit difference failed to validate, expected "+amount+
+                ", but found "+difference);
 
         stepPassedWithScreenshot("Deposit difference validated successfully");
     }

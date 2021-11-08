@@ -1,11 +1,11 @@
 import Roman.RomanBase;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import selenium.fix.FailingApplication;
 
 public class Selenium extends RomanBase {
 
-    @Before
+    @BeforeEach
     public void setup()
     {
         roman()._driver = roman().selenium.getChromeDriver();
