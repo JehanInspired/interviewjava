@@ -1,7 +1,7 @@
 package selenium.fix.pages;
 
-import Roman.Roman;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import selenium.AbstractPage;
 
 public class LoginPage extends AbstractPage {
@@ -11,18 +11,13 @@ public class LoginPage extends AbstractPage {
     private By LoginBtn = By.xpath("");
 
 
-    public LoginPage(Roman roman) {
-        super(roman);
-    }
-
-    @Override
-    protected String get_uri() {
-        return "http://www.way2automation.com/angularjs-protractor/banking/#/login";
+    public LoginPage(WebDriver driver) {
+        super(driver);
     }
 
     public void login(String customerName)
     {
-        navigateTo();
+        navigate("http://www.way2automation.com/angularjs-protractor/banking/#/login");
         waitForDisplayed();
         click(CustomerLoginBtn);
         selectFromDropdown(NameSelect, customerName);

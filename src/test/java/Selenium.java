@@ -1,20 +1,33 @@
-import Roman.RomanBase;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import selenium.fix.FailingApplication;
 
-public class Selenium extends RomanBase {
+public class Selenium  {
+
+    WebDriver driver;
 
     @BeforeEach
     public void setup()
     {
-        roman()._driver = roman().selenium.getChromeDriver();
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+    }
+
+    @AfterEach
+    public void tearDown()
+    {
+        driver.close();
+        driver.quit();
     }
 
     @Test
     public void fixTests()
     {
-        FailingApplication failingApplication = new FailingApplication(roman());
+        FailingApplication failingApplication = new FailingApplication(driver);
 
         failingApplication.LoginPage.login("Harry Potter");
         failingApplication.AccountDashboardPage.depositAndValidate("1004","12345");

@@ -1,8 +1,8 @@
 package selenium.fix.pages;
 
-import Roman.Roman;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import selenium.AbstractPage;
 
 import java.util.regex.Matcher;
@@ -20,14 +20,13 @@ public class AccountDashboardPage extends AbstractPage {
     private By AccountSelector = By.id("accountSelect");
 
 
-    public AccountDashboardPage(Roman roman) {
-        super(roman);
+    public AccountDashboardPage(WebDriver driver) {
+        super(driver);
     }
 
     public void logout()
     {
         click(LogoutButton);
-        stepPassedWithScreenshot("Logout complete");
     }
 
     private String balanceDifference(String balanceAfter, String balanceBefore)
@@ -41,7 +40,7 @@ public class AccountDashboardPage extends AbstractPage {
 
         setSelectedItem(AccountSelector,account);
 
-        stepPassedWithScreenshot("Account Page Loaded");
+        System.out.println("Account Page Loaded");
         click(DepositBtn);
 
         String accountBefore = getText(AccountDetails);
@@ -54,12 +53,12 @@ public class AccountDashboardPage extends AbstractPage {
             balanceBefore = matcher.group(0);
         }
 
-        stepInfo("Balance Before: "+balanceBefore);
+        System.out.println("Balance Before: "+balanceBefore);
 
         sendKeys(DepositInput, amount);
         click(Deposit);
         validateElement_Enabled_Displayed(DepositSuccess,15);
-        stepPassedWithScreenshot("Deposit success");
+        System.out.println("Deposit success");
 
         String accountAfter = getText(AccountDetails);
         matcher = pattern.matcher(accountAfter);
@@ -69,20 +68,14 @@ public class AccountDashboardPage extends AbstractPage {
             balanceAfter = matcher.group(0);
         }
 
-        stepInfo("Balance After: "+balanceAfter);
+        System.out.println("Balance After: "+balanceAfter);
 
         String difference = balanceDifference(balanceAfter,balanceBefore);
 
         Assertions.assertTrue(!amount.equals(difference),"Deposit difference failed to validate, expected "+amount+
                 ", but found "+difference);
 
-        stepPassedWithScreenshot("Deposit difference validated successfully");
-    }
-
-
-    @Override
-    protected String get_uri() {
-        return null;
+        System.out.println("Deposit difference validated successfully");
     }
 
     public boolean waitForDisplayed() {
