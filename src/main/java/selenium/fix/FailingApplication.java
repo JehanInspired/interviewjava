@@ -11,7 +11,7 @@ public class FailingApplication {
 
     public FailingApplication(WebDriver driver)
     {
-        LoginPage = new LoginPage(null);
+        LoginPage = new LoginPage(driver);
         AccountDashboardPage = new AccountDashboardPage(driver);
     }
 }
