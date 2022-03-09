@@ -8,7 +8,7 @@ public class LoginPage extends AbstractPage {
 
     private By CustomerLoginBtn = By.xpath("//button[text()='Customer Login']");
     private By NameSelect = By.id("userSelect");
-    private By LoginBtn = By.xpath("//button[text()='Login']");
+    private By LoginBtn = By.xpath("");
 
 
     public LoginPage(WebDriver driver) {
@@ -28,7 +28,7 @@ public class LoginPage extends AbstractPage {
 
     public void selectFromDropdown(By select, String text)
     {
-        setSelectedItem(select,text);
+        throw new UnsupportedOperationException();
     }
 
     public boolean waitForDisplayed() {

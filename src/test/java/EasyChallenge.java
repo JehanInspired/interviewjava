@@ -12,20 +12,9 @@ public class EasyChallenge {
     public void studentTest()
     {
         List<Student> students = Student.getStudents(1000);
-var t = "";
         //Create a List of Students over 15 years
 
-        List<Student> studentAges =  new ArrayList<>();
 
-        for(int i=0; i < students.size();i++)
-        {
-            var student = students.get(i);
-            if(student.Age > 15)
-            {
-                System.out.println(student.Name+" "+student.Surname);
-                studentAges.add(student);
-            }
-        }
         //Create a List of Students who are enrolled in Maths
 
         //Create a List of Student Names who are 18 and enrolled in History
