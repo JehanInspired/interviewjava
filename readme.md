@@ -1,16 +1,10 @@
-#Senior Java Automation Interview
 
-## Current
-
-For this interview perform a candidate must complete the following tasks:
+For this interview you must complete the following tasks:
 
 * Fork the repo 
-* Estimations on Test_Cases_Estimations.xlsx
-* 1 of the Easy Challenges
-* 1 of the Harder Challenges
-* They must fix the errors in the FailingApplication tests
+* Task 1 : Provide estimates for the 5 Test Cases provided in the repo (Test_Cases_Estimations.xlsx)
+    *  Explaining your reasoning for your estimates
+* Task 2 : Complete the easy challanges found in src/test/java/EasyChallenge.java
+* Task 3: Fix the errors in the FailingApplication tests
 
-If time permits you can also ask them to implement their own Page Object Model
-
-## Future
-We will be adding an api task
+NB! All answers must be pasted into the assessment platform underneath the corresponding task.
