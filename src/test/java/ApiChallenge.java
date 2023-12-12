@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 public class ApiChallenge {
 
     /**
-     * Using OkHttp and the following Reset Server https://jsonplaceholder.typicode.com
+     * Using the following Reset Server https://jsonplaceholder.typicode.com
      * You are expected to deserialize the response data
      */
 
