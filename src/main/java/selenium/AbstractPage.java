@@ -3,9 +3,11 @@ package selenium;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public abstract class AbstractPage {
@@ -17,10 +19,11 @@ public abstract class AbstractPage {
         _driver = driver;
     }
 
-    public WebElement findOne(By by)
+    public WebElement findOne(By by, int ... waitTimeout)
     {
-        WebDriverWait wait = new WebDriverWait(_driver, 5);
-        return wait.until(drv -> drv.findElement(by));
+        int localTimeout = (waitTimeout != null && waitTimeout.length > 0) ? waitTimeout[0] : 30;
+        WebDriverWait wait = new WebDriverWait(_driver, localTimeout);
+        return wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
     public List<WebElement> find(By by)

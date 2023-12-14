@@ -2,6 +2,7 @@ package selenium.fix.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 import selenium.AbstractPage;
 
 public class LoginPage extends AbstractPage {
@@ -26,9 +27,10 @@ public class LoginPage extends AbstractPage {
 
     }
 
-    public void selectFromDropdown(By select, String text)
+    public void selectFromDropdown(By by, String text)
     {
-        throw new UnsupportedOperationException();
+        Select select = new Select(findOne(by));
+        select.selectByVisibleText(text);
     }
 
     public boolean waitForDisplayed() {
